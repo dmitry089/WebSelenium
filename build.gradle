@@ -20,6 +20,7 @@ dependencies {
     testImplementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
     testImplementation 'org.seleniumhq.selenium:selenium-chrome-driver:3.141.59'
     testImplementation 'io.github.bonigarcia:webdrivermanager:5.0.2'
+    testRuntimeOnly 'org.slf4j:slf4j-simple:1.7.30'
 }
 
 test {

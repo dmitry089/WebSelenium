@@ -21,6 +21,7 @@ public class WebSeleniumTest {
     @BeforeEach
     void setUp() {
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
@@ -34,12 +35,12 @@ public class WebSeleniumTest {
     }
     @Test
     void shouldSiteCheckTest1() {
-        driver.findElement(By.cssSelector("span[data-test-id=name] input")).sendKeys("Петров Петр");
-        driver.findElement(By.cssSelector("span[data-test-id=name] input")).sendKeys("+79123456789");
+        driver.findElement(By.cssSelector("[data-test-id=name]")).sendKeys("Петров Петр");
+        driver.findElement(By.cssSelector("[data-test-id=name]")).sendKeys("+79123456789");
         driver.findElement(By.cssSelector(".checkbox__box")).click();
         driver.findElement(By.cssSelector(".button__text")).click();
         String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-        String actual = driver.findElement(By.cssSelector("[data-test-id='order-success']input")).getText().trim();
+        String actual = driver.findElement(By.cssSelector("[data-test-id='order-success']")).getText().trim();
 
         assertEquals(expected,actual);
     }
