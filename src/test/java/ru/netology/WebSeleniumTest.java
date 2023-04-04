@@ -36,7 +36,7 @@ public class WebSeleniumTest {
     @Test
     void shouldSiteCheckTest1() {
         driver.findElement(By.cssSelector("[data-test-id=name]")).sendKeys("Петров Петр");
-        driver.findElement(By.cssSelector("[data-test-id=name]")).sendKeys("+79123456789");
+        driver.findElement(By.cssSelector("[data-test-id=phone]")).sendKeys("+79123456789");
         driver.findElement(By.cssSelector(".checkbox__box")).click();
         driver.findElement(By.cssSelector(".button__text")).click();
         String expected = "Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
